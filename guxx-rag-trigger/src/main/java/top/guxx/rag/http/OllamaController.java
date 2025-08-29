@@ -12,6 +12,7 @@ import org.springframework.ai.ollama.OllamaChatClient;
 import org.springframework.ai.ollama.api.OllamaOptions;
 import org.springframework.ai.vectorstore.PgVectorStore;
 import org.springframework.ai.vectorstore.SearchRequest;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import top.guxx.rag.api.response.IAiService;
@@ -44,7 +45,8 @@ public class OllamaController implements IAiService {
     /**
      * http://localhost:8090/api/v1/ollama/generate_stream?model=deepseek-r1:1.5b&message=hi
      */
-    @RequestMapping(value = "generate_stream", method = RequestMethod.GET)
+    @RequestMapping(value = "generate_stream", method = RequestMethod.GET, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+
     @Override
     public Flux<ChatResponse> generateStream(@RequestParam("model") String model, @RequestParam("message") String message) {
         return chatClient.stream(new Prompt(message, OllamaOptions.create().withModel(model)));
