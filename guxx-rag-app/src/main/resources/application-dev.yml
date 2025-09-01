@@ -2,6 +2,9 @@ server:
   port: 8090
 
 spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.ai.autoconfigure.ollama.OllamaAutoConfiguration
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -27,18 +30,23 @@ spring:
       # 连接测试query
       connection-test-query: SELECT 1
   ai:
-    ollama:
-      base-url: http://localhost:11434
-      embedding:
-        options:
-          num-batch: 512
-        model: nomic-embed-text
+    mcp:
+      client-id:
+        stdio:
+          servers-configuration: classpath:/config/mcp-servers-config.json
+#    ollama:
+#      base-url: http://localhost:11434
+#      embedding:
+#        options:
+#          num-batch: 512
+#        model: nomic-embed-text
     openai:
-      base-url: https://pro-share-aws-api.zcyai.com/
-      api-key: sk-eEyfxptPgbfXd3Z164260740E0494161Bd8
+      base-url: https://api.hunyuan.cloud.tencent.com
+      api-key: sk-Bwbx7YrYG7RkB7vMjoR8mVz9JiYhymLZde3JjWQThmE9IIlb
       embedding-model: text-embedding-ada-002
     rag:
       embed: nomic-embed-text #nomic-embed-text、text-embedding-ada-002
+
 
 
 # Redis

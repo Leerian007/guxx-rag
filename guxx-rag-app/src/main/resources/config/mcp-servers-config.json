@@ -1,0 +1,73 @@
+{
+  "servers": [
+    {
+      "name": "filesystem",
+      "command": "D:\\AppFiles\\NVM\\nodejs\\npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:\\zhaolr",
+        "D:\\zhaolr"
+      ],
+      "toolMetadata": {
+        "tools": [
+          {
+            "name": "listFiles",
+            "description": "List files in a directory",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "The directory path"
+                }
+              },
+              "required": ["path"]
+            }
+          },
+          {
+            "name": "readFile",
+            "description": "Read content of a file",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "description": "Path to the file"
+                }
+              },
+              "required": ["path"]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "mcp-server-computer",
+      "command": "D:\\zhaolr\\Tools\\JDK\\JDK17\\bin\\java.exe",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-jar",
+        "D:\\zhaolr\\Tools\\Maven\\apache-maven-3.9.10\\repository\\cn\\bugstack\\mcp\\mcp-server-computer\\1.0.0\\mcp-server-computer-1.0.0.jar"
+      ],
+      "toolMetadata": {
+        "tools": [
+          {
+            "name": "executeCommand",
+            "description": "Execute a shell command and return output",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "command": {
+                  "type": "string",
+                  "description": "Command to execute"
+                }
+              },
+              "required": ["command"]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

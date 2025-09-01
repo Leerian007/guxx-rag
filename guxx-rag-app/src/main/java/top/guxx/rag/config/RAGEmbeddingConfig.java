@@ -1,10 +1,10 @@
 package top.guxx.rag.config;
 
-import org.springframework.ai.ollama.OllamaEmbeddingClient;
+
 import org.springframework.ai.ollama.api.OllamaApi;
 import org.springframework.ai.ollama.api.OllamaOptions;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
-import org.springframework.ai.vectorstore.PgVectorStore;
+
 import org.springframework.ai.vectorstore.SimpleVectorStore;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
