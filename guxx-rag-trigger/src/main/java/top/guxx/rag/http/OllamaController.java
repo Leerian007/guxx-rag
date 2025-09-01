@@ -33,18 +33,12 @@ public class OllamaController implements IAiService {
     @Resource
     private PgVectorStore pgVectorStore;
 
-    /**
-     * http://localhost:8090/api/v1/ollama/generate?model=deepseek-r1:1.5b&message=1+1
-     */
     @RequestMapping(value = "generate", method = RequestMethod.GET)
     @Override
     public ChatResponse generate(@RequestParam("model") String model, @RequestParam("message") String message) {
         return chatClient.call(new Prompt(message, OllamaOptions.create().withModel(model)));
     }
 
-    /**
-     * http://localhost:8090/api/v1/ollama/generate_stream?model=deepseek-r1:1.5b&message=hi
-     */
     @RequestMapping(value = "generate_stream", method = RequestMethod.GET, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 
     @Override
@@ -82,6 +76,7 @@ public class OllamaController implements IAiService {
                         .withModel(model)
         ));
     }
+
 
 }
 
