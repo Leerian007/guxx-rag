@@ -17,7 +17,7 @@ public class RAGEmbeddingConfig {
 //    public OllamaApi ollamaApi(@Value("${spring.ai.ollama.base-url:localhost:11434}") String baseUrl) {
 //        return new OllamaApi(baseUrl);
 //    }
-//
+
 //    @Bean
 //    public TokenTextSplitter tokenTextSplitter() {
 //        return new TokenTextSplitter();

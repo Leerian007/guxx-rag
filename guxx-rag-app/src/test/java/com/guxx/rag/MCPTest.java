@@ -21,7 +21,7 @@ public class MCPTest {
     private ChatClient.Builder chatClientBuilder;
 
     @Resource
-    @Qualifier("syncMcpToolCallbackProvider")  // ✅ 明确指定
+    @Qualifier("syncMcpToolCallbackProvider")
     private ToolCallbackProvider tools;
 
     @Test
@@ -30,7 +30,7 @@ public class MCPTest {
         var chatClient = chatClientBuilder
                 .defaultTools(tools)
                 .defaultOptions(OpenAiChatOptions.builder()
-                        .model("hunyuan-functioncall")
+                        .model("deepseek-chat")
                         .build())
                 .build();
 
@@ -41,12 +41,12 @@ public class MCPTest {
     @Test
     public void test_workflow() {
         String userInput = "获取电脑配置";
-        userInput = "在 /Users/fuzhengwei/Desktop 文件夹下，创建 电脑.txt";
+        userInput = "获取电脑配置 在 D:\\zhaolr 文件夹下，创建 电脑配置.txt 把电脑配置写入 电脑配置.txt";
 
         var chatClient = chatClientBuilder
                 .defaultTools(tools)
                 .defaultOptions(OpenAiChatOptions.builder()
-                        .model("hunyuan-functioncall")
+                        .model("deepseek-chat")
                         .build())
                 .build();
 
