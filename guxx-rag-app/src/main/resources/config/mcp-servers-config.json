@@ -15,6 +15,14 @@
         "-jar",
         "C:\\Guxx\\projects\\mcp-server\\target\\mcp-server-computer-1.0.0.jar"
       ]
+    },
+    "database": {
+      "command": "java.exe",
+      "args": [
+        "-Dspring.ai.mcp.server.stdio=true",
+        "-jar",
+        "C:\\Guxx\\projects\\guxx-mcp-server\\target\\guxx-mcp-server-database-1.0.0.jar"
+      ]
     }
   }
 }

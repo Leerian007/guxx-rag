@@ -122,32 +122,4 @@ public class OpenAiConfig {
     public ChatClient.Builder chatClientBuilder(OpenAiChatModel openAiChatModel) {
         return new DefaultChatClientBuilder(openAiChatModel, ObservationRegistry.NOOP, (ChatClientObservationConvention) null);
     }
-
-    public static void main(String[] args) {
-        Properties properties = System.getProperties();
-
-        // 操作系统名称
-        String osName = properties.getProperty("os.name");
-        // 操作系统版本
-        String osVersion = properties.getProperty("os.version");
-        // 操作系统架构
-        String osArch = properties.getProperty("os.arch");
-        // 用户的账户名称
-        String userName = properties.getProperty("user.name");
-        // 用户的主目录
-        String userHome = properties.getProperty("user.home");
-        // 用户的当前工作目录
-        String userDir = properties.getProperty("user.dir");
-        // Java 运行时环境版本
-        String javaVersion = properties.getProperty("java.version");
-
-        System.out.println("OS Name: " + osName);
-        System.out.println("OS Version: " + osVersion);
-        System.out.println("OS Architecture: " + osArch);
-        System.out.println("User Name: " + userName);
-        System.out.println("User Home: " + userHome);
-        System.out.println("User Directory: " + userDir);
-        System.out.println("Java Version: " + javaVersion);
-        System.out.println("Java Home: " + properties.getProperty("java.home"));
-    }
 }

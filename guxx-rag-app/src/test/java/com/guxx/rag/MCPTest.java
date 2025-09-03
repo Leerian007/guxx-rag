@@ -54,4 +54,36 @@ public class MCPTest {
         System.out.println("\n>>> ASSISTANT: " + chatClient.prompt(userInput).call().content());
     }
 
+    @Test
+    public void test_dataBase() {
+        String userInput = "获取电脑配置";
+        userInput = "获取数据库中用户表的所有数据，并写在 D:\\zhaolr 文件夹下，创建 user.txt 把数据写入 user.txt";
+
+        var chatClient = chatClientBuilder
+                .defaultTools(tools)
+                .defaultOptions(OpenAiChatOptions.builder()
+                        .model("deepseek-chat")
+                        .build())
+                .build();
+
+        System.out.println("\n>>> QUESTION: " + userInput);
+        System.out.println("\n>>> ASSISTANT: " + chatClient.prompt(userInput).call().content());
+    }
+
+    @Test
+    public void test_dataBaseOne() {
+        String userInput = "获取电脑配置";
+        userInput = "查询数据库用户信息，年龄34岁的用户，只需要这一个筛选条件，其他不用";
+
+        var chatClient = chatClientBuilder
+                .defaultTools(tools)
+                .defaultOptions(OpenAiChatOptions.builder()
+                        .model("deepseek-chat")
+                        .build())
+                .build();
+
+        System.out.println("\n>>> QUESTION: " + userInput);
+        System.out.println("\n>>> ASSISTANT: " + chatClient.prompt(userInput).call().content());
+    }
+
 }
